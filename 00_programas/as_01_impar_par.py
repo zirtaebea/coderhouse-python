@@ -1,4 +1,5 @@
-numero = int(input("Digite um número inteiro: ")) #input
+#input
+numero = int(input("Digite um número inteiro: ")) 
 
 #se o resto do numero dividido por 2 for igual a 0 
 if numero % 2 == 0:

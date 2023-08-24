@@ -1,9 +1,14 @@
+#input
 n = int(input("Digite um número inteiro"))
 
+#variaveis para a iteração
 i = 1
 resultado = 1
 
-while i <= n: #enquanto i for menor que n
-    resultado *= i #resultado multiplicado pelo valor de i
-    i += 1 #iterador
+#enquanto i for menor que n
+while i <= n: 
+    #resultado multiplicado pelo valor de i
+    resultado *= i 
+    #iterador
+    i += 1 
 print(resultado)
