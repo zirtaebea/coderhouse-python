@@ -20,7 +20,6 @@ def alerta(nivel, base, etapa):
         tipo_alerta = 'Alerta alto' 
     
     #função de notificação    
-    # função de notificação
     notification.notify(
     title=f"ATENÇÃO: {tipo_alerta}",  # título do alerta
     message="Falha no carregamento da base {} na etapa {}.\n{}".format(base, etapa, str(datetime.now())),  # mensagem do alerta
