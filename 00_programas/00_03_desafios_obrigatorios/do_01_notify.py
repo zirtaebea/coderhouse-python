@@ -3,9 +3,6 @@
 from plyer import notification 
 from datetime import datetime
 
-meu_nivel = int(input("Insira o número correspondente ao nível do alerta: \n 1 - BAIXO \n 2 - MÉDIO \n 3 - ALTO\n"))
-minha_base = input("Insira a base que ocorreu o conflito: ")
-minha_etapa = input("Insira a etapa na qual ocorreu o conflito: ")
 
 #definindo função de alerta
 def alerta(nivel, base, etapa):
@@ -21,7 +18,7 @@ def alerta(nivel, base, etapa):
         
     #se nivel for igual 3 então o alerta será alto
     elif nivel == 3:
-        tipo_alerta = 'Alerta alto' 
+        tipo_alerta = 'Alerta alto'
     
     #função de notificação    
     notification.notify(
@@ -30,6 +27,21 @@ def alerta(nivel, base, etapa):
     app_name="Base de dados",
     timeout=10
     )
+
+#loop para verificar se o valor inserido no input do nível é aceito
+while True:
+    try:
+        meu_nivel = int(input("Insira o número correspondente ao nível do alerta: \n 1 - BAIXO \n 2 - MÉDIO \n 3 - ALTO\n"))
+        if meu_nivel in [1, 2, 3]:
+            break  #sai do loop se o número for válido
+        else:
+            print("Número inválido, tente novamente.") #se não for valido aparece essa mensagem
+    except ValueError:
+        print("Entrada inválida. Insira um número válido.") #se nenhum valor for apresentado ou não for um inteiro aparece essa mensagem
+
+#inputs de base e etapa
+minha_base = input("Insira a base que ocorreu o conflito: ")
+minha_etapa = input("Insira a etapa na qual ocorreu o conflito: ")
 
 #testando função
 alerta(meu_nivel, minha_base, minha_etapa)
