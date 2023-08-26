@@ -7,8 +7,11 @@
 #definindo função
 def is_leap(year):
     leap = False
-    if (year % 4 == 0 and year % 100 != 0) or year % 400 == 0: #só será bisexto se o ano for divisivel por 4 e não for divisivel por 100 OU se o ano for divisivel por 400
-        leap = True #se atender o if, mudar leap pra true
+    
+    #só será bisexto se o ano for divisivel por 4 e não for divisivel por 100 OU se o ano for divisivel por 400
+    if (year % 4 == 0 and year % 100 != 0) or year % 400 == 0: 
+        #se atender o if, mudar leap pra true
+        leap = True 
     return leap
 
 #input do ano
