@@ -61,8 +61,8 @@ consoles.info()
 
 # 5) filtre os consoles que foram descontinuados a menos que 2 anos da data de release
 # fazendo operação entre colunas para descobrir a diferença entre o ano de lançamento e o ano de descontinuação
-consoles['diferenca'] = consoles['Discontinuation Year'] - \
-    consoles['Released Year']
+consoles['diferenca'] = (
+    consoles['Discontinuation Year'] - consoles['Released Year'])
 
 # filtrando apenas os valores maiores que zero e menores que 2
 diferenca = (consoles['diferenca'] > 0) & (consoles['diferenca'] <= 2)
