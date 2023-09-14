@@ -42,7 +42,7 @@ consoles.loc[consoles['Console Name'].str.contains(
 
 # 3) filtre o nome dos consoles com data de release depois de 2010
 consoles_above_2010 = consoles.loc[consoles['Released Year']
-                                   >= 2010, 'Console Name']
+                                   >= 2010, ['Console Name', 'Released Year']]
 consoles_above_2010.head()
 
 
