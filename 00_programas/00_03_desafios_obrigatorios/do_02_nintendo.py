@@ -7,14 +7,14 @@ import pandas as pd
 
 # abrindo em csv
 consoles_csv = pd.read_csv(
-    'consoles.csv')
+    '00_programas/00_03_desafios_obrigatorios/consoles.csv')
 
 # convertendo para excel
-consoles_csv.to_excel('consoles.xlsx')
+consoles_csv.to_excel('00_programas/00_03_desafios_obrigatorios/consoles.xlsx')
 
 # lendo em excel
 consoles = pd.read_excel(
-    'consoles.xlsx')
+    '00_programas/00_03_desafios_obrigatorios/consoles.xlsx')
 
 # verificando arquivo
 consoles.head()
@@ -42,7 +42,7 @@ consoles.loc[consoles['Console Name'].str.contains(
 
 # 3) filtre o nome dos consoles com data de release depois de 2010
 consoles_above_2010 = consoles.loc[consoles['Released Year']
-                                   > 2010, 'Console Name']
+                                   >= 2010, 'Console Name']
 consoles_above_2010.head()
 
 
