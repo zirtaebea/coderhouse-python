@@ -2,8 +2,6 @@ import pandas as pd
 import sqlite3
 
 # 1) dataframe com as tabelas do banco de dados
-
-
 def tabelas_bd():
     # fazendo conexão
     conn = sqlite3.connect('coderhouse.db')
