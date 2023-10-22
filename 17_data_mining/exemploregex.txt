@@ -1,0 +1,117 @@
+Lorem ipsum dolor support3@ddd.com sit amet, consectetur adipiscing elit. Fusce dapibus, felis a tempor tristique,
+turpis enim feugiat tortor, a varius justo lectus sed velit. Ut eu ligula euismod, lacinia elit eu,
+commodo Nullam sales@salesforce.com lobortis lacus sed lorem malesuada, vel tristique quam tempus. 
+Proin 3003-2312 aliquet malesuada condimentum arcu, id malesuada sagittis ex john.doe@uol.com scelerisque vitae. 
+Suspendisse commodo, sapien eu vulputate viverra, metus nunc ultrices odio, at gravida turpis justo nec odio. 
+In hac habitasse platea dictumst. 
+Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed eget leo ac justo commodo rutrum.
+Curabitur malesuada jane.smith@ddd.com luctus efficitur 98993-3102 mauris, 
+vitae bibendum turpis. Nulla facilisi. In ullamcorper nisi vel congue pretium. Quisque sed enim non urna fermentum tincidunt
+
+
+DICIONÁRIO REGEX:
+1. Meta-caracteres
+    .: Representa qualquer caractere, exceto uma nova linha.
+    ^: Indica o início da linha.
+    $: Indica o fim da linha.
+    *: Corresponde a zero ou mais ocorrências do caractere anterior.
+    +: Corresponde a uma ou mais ocorrências do caractere anterior.
+    ?: Corresponde a zero ou uma ocorrência do caractere anterior.
+    |: Operador OU. Corresponde a uma expressão ou outra.
+2. Quantificadores
+    {n}: Corresponde a exatamente 'n' ocorrências do caractere anterior.
+    {n,}: Corresponde a 'n' ou mais ocorrências.
+    {n,m}: Corresponde entre 'n' e 'm' ocorrências.
+3. Conjuntos e classes de caracteres
+    [...]: Corresponde a qualquer caractere entre colchetes.
+    [^...]: Corresponde a qualquer caractere que não esteja entre colchetes.
+    \d: Corresponde a qualquer dígito. Equivalente a [0-9].
+    \D: Corresponde a qualquer não dígito.
+    \w: Corresponde a qualquer caractere alfanumérico ou sublinhado.
+    \W: Corresponde a qualquer caractere que não seja alfanumérico ou sublinhado.
+    \s: Corresponde a qualquer espaço em branco (espaço, tabulação, nova linha, etc).
+    \S: Corresponde a qualquer caractere que não seja espaço em branco.
+4. Grupos e referências
+    (...): Define um grupo.
+    \n: Refere-se ao n-ésimo grupo capturado.
+5. Afirmações
+    (?=...): Afirmação positiva à frente. Verifica se há uma correspondência à frente, mas não consome caracteres.
+    (?!...): Afirmação negativa à frente.
+    
+6. Modificadores
+i: Ignora a diferença entre maiúsculas e minúsculas.
+m: Multilinha. Faz com que ^ e $ correspondam ao início e ao fim de qualquer linha.
+g: Global. Corresponde a todas as ocorrências.
+
+
+EXEMPLOS:
+
+1. Endereços de E-mail
+Regex: [\w.-]+@[\w.-]+\.[a-zA-Z]{2,4}
+    Descrição:
+    [\w.-]+: Esta parte busca uma sequência de um ou mais caracteres alfanuméricos, ponto ou hífen. Esta sequência representa o nome do usuário antes do "@".
+    @: Este é o símbolo "@" literal, usado comumente em endereços de e-mail.
+    [\w.-]+: Novamente, busca uma sequência de um ou mais caracteres alfanuméricos, ponto ou hífen. Representa o domínio do e-mail antes do ponto.
+    \.[a-zA-Z]{2,4}: Procura um ponto literal seguido de 2 a 4 letras, representando as terminações de domínio (como .com, .org, .net).
+
+2. Números de Telefone (formato XXXX-XXXX)
+Regex: \d{4}-\d{4}
+    Descrição:
+    \d{4}: Busca por uma sequência de exatamente 4 dígitos.
+    -: Este é o hífen literal.
+    \d{4}: Busca novamente por uma sequência de exatamente 4 dígitos.
+
+3. Palavras Começando com "ma"
+    Regex: \bma\w*\b
+    Descrição:
+    \b: Representa a borda de uma palavra, garantindo que estamos buscando por palavras completas e não substrings.
+    ma: Esta é a sequência literal "ma".
+    \w*: Busca por zero ou mais caracteres alfanuméricos, permitindo palavras de qualquer comprimento que começam com "ma".
+
+4. Palavras com 5 Letras
+Regex: \b\w{5}\b
+    Descrição:
+    \b: Representa a borda de uma palavra.
+    \w{5}: Busca por uma sequência de exatamente 5 caracteres alfanuméricos.
+
+5. Sentenças que Contêm "lorem"
+Regex: [^.]*\blorem\b[^.]*\.
+    Descrição:
+    [^.]*: Busca por zero ou mais caracteres que não sejam o ponto, cobrindo qualquer parte da sentença antes de "lorem".
+    \blorem\b: Busca pela palavra "lorem" como uma palavra completa.
+    [^.]*\.: Busca por zero ou mais caracteres que não sejam o ponto, seguido por um ponto literal, cobrindo qualquer parte da sentença após "lorem".
+
+6. Palavras que Terminam em "us"
+Regex: \b\w*us\b
+    Descrição:
+    \b: Representa a borda de uma palavra.
+    \w*: Busca por zero ou mais caracteres alfanuméricos.
+    us: Esta é a sequência literal "us".
+
+7. Palavras com Letra "e" seguida de Letra "i"
+Regex: \b\w*ei\w*\b
+    Descrição:
+    \b: Representa a borda de uma palavra.
+    \w*: Busca por zero ou mais caracteres alfanuméricos antes da sequência "ei".
+    ei: Esta é a sequência literal "ei".
+    \w*: Busca por zero ou mais caracteres alfanuméricos após a sequência "ei".
+
+8. Números de 5 Dígitos
+Regex: \b\d{5}\b
+    Descrição:
+    \b: Representa a borda de uma palavra.
+    \d{5}: Busca por uma sequência de exatamente 5 dígitos.
+
+9. Todas as Ocorrências de "eu"
+Regex: eu
+    Descrição:
+    eu: Esta é a sequência literal "eu". Busca por todas as ocorrências dessa sequência no texto.
+
+10. Palavras que Começam com "S" e Terminam com "m"
+Regex: \bs\w*m\b
+Descrição:
+    \b: Representa a borda de uma palavra.
+    s: Representa a letra "s" no início da palavra.
+    \w*: Busca por zero ou mais caracteres alfanuméricos.
+    m: Representa a letra "m" no final da palavra.
+
